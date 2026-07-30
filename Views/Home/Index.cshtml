@@ -1,0 +1,53 @@
+@model IEnumerable<LibraryManagement.Models.Book>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="p-5 mb-4 bg-dark text-white rounded-3">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold">Welcome to LibraryManagement</h1>
+        <p class="col-md-8 fs-5">Browse our catalog, borrow books, and manage the library — all in one place.</p>
+        <a class="btn btn-primary btn-lg" asp-controller="Books" asp-action="Index">Browse Books</a>
+    </div>
+</div>
+
+<div class="row my-5">
+    <div class="col-12">
+        <h2 class="text-center">Featured Books</h2>
+        <hr>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <p class="text-center text-muted">No books available yet. Add some from the Books page.</p>
+    }
+
+    @foreach (var book in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="https://picsum.photos/seed/book@(book.BookId)/400/250" class="card-img-top" alt="@book.Title" />
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">@book.Title</h5>
+                    <p class="card-text text-muted">by @book.Author</p>
+                    <a href="/Books/Details/@book.BookId" class="btn btn-primary mt-auto">View Details</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="row my-5">
+    <div class="col-12">
+        <h2 class="text-center">Library Announcements</h2>
+        <hr>
+    </div>
+    <div class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            <strong>New Arrivals:</strong> Check out the latest books added to our collection!
+        </div>
+        <div class="alert alert-warning" role="alert">
+            <strong>Library Hours Update:</strong> The library will be closed on public holidays.
+        </div>
+    </div>
+</div>
