@@ -1,30 +1,33 @@
 # 📚 Library Management System
 
-A modern **Library Management System** built using **ASP.NET Core MVC (.NET 8)** and **Microsoft SQL Server**. The application automates library operations such as managing books, newspapers, magazines, students, librarians, and book borrowing/returning.
+A modern **Library Management System** developed using **ASP.NET Core MVC (.NET 8)** and **Microsoft SQL Server**. The application automates library operations such as managing books, newspapers, magazines, students, librarians, and book borrowing/returning.
+
+This project was developed as part of the **B.Tech Computer Science & Engineering** curriculum at **VIT Bhopal University**. It demonstrates the implementation of the MVC architecture using **Entity Framework Core**, **ADO.NET**, and **SQL Server**.
 
 ---
 
 ## 🚀 Features
 
 ### 🔐 Authentication
-- Login system
-- Session-based authentication
-- Admin, Student and Librarian roles
-- Logout functionality
+- Login System
+- Session-based Authentication
+- Admin, Student, and Librarian Roles
+- Logout Functionality
 
 ### 📖 Book Management
-- Add new books
-- Edit book details
-- Delete books
-- Search books
+- Add New Books
+- Edit Book Details
+- Delete Books
+- Search Books
 - Pagination
-- Availability status
+- Book Availability Status
 
 ### 📰 Publications Management
 - Newspaper Management
 - Magazine Management
 - CRUD Operations
-- Search & Pagination
+- Search Functionality
+- Pagination
 
 ### 👨‍🎓 Student Management
 - Add Student
@@ -41,13 +44,13 @@ A modern **Library Management System** built using **ASP.NET Core MVC (.NET 8)**
 - Pagination
 
 ### 📚 Borrow & Return System
-- Borrow available books
-- Return books
-- Automatic availability update
-- Borrow history
+- Borrow Available Books
+- Return Borrowed Books
+- Automatic Book Availability Update
+- Borrow History
 
 ### 📊 Dashboard
-Displays
+Displays:
 
 - Total Books
 - Total Students
@@ -67,10 +70,33 @@ Displays
 | SQL Server | Database |
 | Entity Framework Core | ORM |
 | ADO.NET | Direct Database Access |
-| Bootstrap 5 | Frontend |
-| Razor Views | UI |
-| HTML/CSS | Frontend |
-| JavaScript | Client-side |
+| Razor Views | UI Engine |
+| Bootstrap 5 | Frontend Framework |
+| HTML5 | Markup |
+| CSS3 | Styling |
+| JavaScript | Client-side Scripting |
+
+---
+
+# 🏗 Architecture
+
+```
+                User
+                  │
+                  ▼
+             Web Browser
+                  │
+                  ▼
+      ASP.NET Core MVC Controllers
+                  │
+        ┌─────────┴─────────┐
+        ▼                   ▼
+ Entity Framework Core   ADO.NET
+        │                   │
+        └─────────┬─────────┘
+                  ▼
+            SQL Server Database
+```
 
 ---
 
@@ -89,6 +115,7 @@ LibraryManagementSystem
 ├── wwwroot
 ├── Program.cs
 ├── appsettings.json
+├── README.md
 └── LibraryManagement2.csproj
 ```
 
@@ -96,62 +123,73 @@ LibraryManagementSystem
 
 # 🗄 Database
 
-Database Name
+### Database Name
 
 ```
 LibraryManagementSystemDB
 ```
 
-Tables
+### Tables
 
-```
-Books
-BorrowRecords
-Publications
-Students
-Librarians
-logintab
-```
+- Books
+- BorrowRecords
+- Publications
+- Students
+- Librarians
+- logintab
 
 ---
 
-# ⚙ Installation
+# ⚙ Prerequisites
 
-## Clone Repository
+Before running the project, install:
+
+- .NET 8 SDK
+- Microsoft SQL Server 2022
+- Visual Studio 2022 or Visual Studio Code
+- Git
+
+---
+
+# 🚀 Installation
+
+## 1. Clone Repository
 
 ```bash
-git clone git clone https://github.com/krishnatripathi1801/Library-Management-System.git
+git clone https://github.com/krishnatripathi1801/Library-Management-System.git
 ```
 
----
-
-## Open Project
+## 2. Open Project
 
 ```bash
-cd LibraryManagementSystem
+cd Library-Management-System
 ```
 
----
-
-## Restore Packages
+## 3. Restore Packages
 
 ```bash
 dotnet restore
 ```
 
----
+## 4. Configure Database
 
-## Create Database
+Update the SQL Server connection string in **appsettings.json**.
 
-Run Entity Framework migrations
+Example:
+
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "Server=localhost,1433;Database=LibraryManagementSystemDB;User ID=sa;Password=YOUR_SQL_SERVER_PASSWORD;TrustServerCertificate=True;"
+}
+```
+
+## 5. Apply Entity Framework Migrations
 
 ```bash
 dotnet ef database update
 ```
 
----
-
-## Seed Database
+## 6. Execute SQL Script
 
 Run
 
@@ -159,17 +197,15 @@ Run
 Database/setup.sql
 ```
 
-using SQL Server.
+using SQL Server Management Studio (SSMS), Azure Data Studio, or sqlcmd.
 
----
-
-## Run Project
+## 7. Run the Application
 
 ```bash
 dotnet run
 ```
 
-Open
+Open:
 
 ```
 https://localhost:5001
@@ -189,31 +225,111 @@ http://localhost:5000
 |----------|----------|------|
 | admin | 12345 | Admin |
 
+> **Note:** Replace the default credentials before deploying the application.
+
 ---
 
 # 📸 Screenshots
 
-- Login Page
-- Dashboard
-- Books Module
-- Borrow Module
-- Student Module
-- Librarian Module
-- Newspaper Module
-- Magazine Module
+Create a folder named **Screenshots** and add your project screenshots.
+
+Example:
+
+```
+Screenshots/
+├── login.png
+├── dashboard.png
+├── books.png
+├── students.png
+├── librarians.png
+├── borrow.png
+├── publications.png
+└── database.png
+```
+
+Then include them like:
+
+```markdown
+## Login Page
+
+![Login](Screenshots/login.png)
+
+## Dashboard
+
+![Dashboard](Screenshots/dashboard.png)
+
+## Books Module
+
+![Books](Screenshots/books.png)
+
+## Student Module
+
+![Students](Screenshots/students.png)
+
+## Borrow Module
+
+![Borrow](Screenshots/borrow.png)
+```
 
 ---
 
-# 📈 Future Improvements
+# 📈 Future Enhancements
 
 - Password Hashing
-- Database Authentication
-- Barcode Integration
-- RFID Support
-- Fine Calculation
+- Role-Based Authorization
 - Email Notifications
-- Book Cover Upload
-- Role-based Authorization
+- Fine Calculation
+- Barcode Integration
+- RFID Integration
+- Book Cover Image Upload
+- Online Book Reservation
+- Audit Logging
+- Responsive Mobile UI
+
+---
+
+# 🎯 Learning Outcomes
+
+This project demonstrates:
+
+- ASP.NET Core MVC Architecture
+- CRUD Operations
+- Entity Framework Core
+- ADO.NET
+- SQL Server Integration
+- Session Management
+- Model Validation
+- Pagination
+- Search Functionality
+- Database Relationships
+- MVC Design Pattern
+
+---
+
+# 🤝 Contributing
+
+Contributions, suggestions, and improvements are welcome.
+
+1. Fork the repository
+2. Create a new branch
+
+```bash
+git checkout -b feature-name
+```
+
+3. Commit changes
+
+```bash
+git commit -m "Add new feature"
+```
+
+4. Push changes
+
+```bash
+git push origin feature-name
+```
+
+5. Create a Pull Request
 
 ---
 
@@ -225,14 +341,18 @@ B.Tech Computer Science & Engineering
 
 VIT Bhopal University
 
-Email:
+📧 Email:
 krishnatripathi1801@gmail.com
 
-GitHub:
+🌐 GitHub:
 https://github.com/krishnatripathi1801
 
 ---
 
-# 📜 License
+# 📄 License
 
-This project is developed for academic and educational purposes.
+This project is developed for **academic and educational purposes**.
+
+---
+
+## ⭐ If you found this project useful, consider giving it a Star on GitHub!
