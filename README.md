@@ -120,7 +120,7 @@ logintab
 ## Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/LibraryManagementSystem.git
+git clone git clone https://github.com/krishnatripathi1801/Library-Management-System.git
 ```
 
 ---
